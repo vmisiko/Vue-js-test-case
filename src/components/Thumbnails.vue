@@ -1,11 +1,13 @@
 <template>
-  <div class="thumbnail">
+  <div class="thumbnail  mt-5 pt-5">
     
       <b-container>
+
       <b-row>
-       <div v-for="(data, index) in details" :key="index" >
+
+       <div v-for="( data, index ) in details" :key="index" class="px-3 py-3" >
  <!-- card for thumbnail profile  -->
-          <div  class="card mx-3 my-2">
+          <div  class="card mx-2 col-md-12">
 
             <router-link v-bind:to = "'/about/'+ index" ><img :src="data.src" alt="Avatar" style="width:225px; height:225px;" > </router-link>
 
@@ -35,6 +37,7 @@ export default {
     
     return{
       image:"./assets/logo.jpg",
+      
       details: [
          {
                     id: 1,

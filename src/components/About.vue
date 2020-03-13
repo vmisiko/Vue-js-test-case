@@ -1,5 +1,5 @@
 <template>
-<div class="about">
+<div class="about my-5 pt-5">
     <b-container v-if=" Number(their_name) < 10">
     <!-- <h1>Victor Misiko</h1> -->
     <b-row>
@@ -13,7 +13,7 @@
                             {{ details[Number(their_name)].name  }}
                         </h3>
                         <blockquote >
-                            <em class="text-muted">Department: {{ details[Number(their_name)].department }}</em> &nbsp;
+                            <em class="text-muted"> Department: {{ details[Number(their_name)].department }} </em> &nbsp;
                         </blockquote>
                     
                         <hr>
@@ -24,7 +24,7 @@
                                 <h5 class="text-muted">
                                     <b-icon icon="envelope"></b-icon> Email
                                 </h5>
-                                <span class="ml-2"> {{details[Number(their_name)].email}} </span>
+                                <span class="ml-2"> {{ details[Number(their_name)].email }} </span>
                                 <h5 class="text-muted">
                                     <b-icon icon="phone"></b-icon> Phone Number
                                 </h5>
@@ -67,80 +67,18 @@
                     Timeline Activities
                 </h1>   
 
-                <div class="timeline ">
+                <div v-for="(data, index) in timeline" :key="index" class="">
                     <p >
-                        Added landing page to the site
+                        {{data.action}}
+                        
+                        <!-- Added landing page to the site -->
                         <br>
 
-                        <span>1 month ago</span> 
+                        <span>{{data.time}}</span> 
                     </p>
-                    <p>
-                        Added landing page to the site
-                        <br>
-
-                        <span>1 month ago</span> 
-                    </p>
-                    <p>
-                        Added landing page to the site
-                        <br>
-
-                        <span>1 month ago</span> 
-                    </p>
-                    <p>
-                        Added landing page to the site
-                        <br>
-
-                        <span>1 month ago</span> 
-                    </p>
-                    <p>
-                        Added landing page to the site
-                        <br>
-
-                        <span>1 month ago</span> 
-                    </p>
-                    
                     
                 </div>
-                <!-- <div class="timeline">
-                    <p>
-                        Added landing page to the site
-                        <br>
-
-                        <span>1 month ago</span> 
-                    </p>
-                    
-                    
-                </div>
-                <div class="timeline">
-                    <p>
-                        Added landing page to the site
-                        <br>
-
-                        <span>1 month ago</span> 
-                    </p>
-                    
-                    
-                </div>
-                <div class="timeline">
-                    <p>
-                        Added landing page to the site
-                        <br>
-
-                        <span>1 month ago</span> 
-                    </p>
-                    
-                    
-                </div>
-                <div class="timeline">
-                    <p>
-                        Added landing page to the site
-                        <br>
-
-                        <span>1 month ago</span> 
-                    </p>
-                    
-                    
-                </div> -->
+               
            </div>
 
        </b-col>
@@ -158,7 +96,33 @@ export default {
     name: "About",
     data (){
         return{
-
+            timeline:[
+                     {
+                         action:" Added content in the landing page",
+                         time:"2 Minutes Ago"
+  
+                     },
+                     {
+                         action:"Fixed the logo Area",
+                         time:"4 Days Ago"
+  
+                     },
+                     {
+                         action:"Had a meeting with a Client",
+                         time:"30 Minutes Ago"
+  
+                     },
+                     {
+                         action:" installes SSL certificate",
+                         time:"3 Mohths Ago"
+  
+                     },
+                     {
+                         action:"Uploaded the site Live",
+                         time:"2 Years Ago"
+  
+                     }
+                ],
             their_name: this.$route.params.name,
             src:require("../assets/images.png"),
             details: [
